@@ -21,11 +21,16 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Welcome ${widget.title}"),
       ),
       body:Center(
-        child: MaterialButton(
-          onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
-
-          },
+        child: Container(
+          height: 50,
+          width: 100,
+          color: Colors.teal,
+          child: MaterialButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+            },
+            child: Text('Click me'),
+          ),
         ),
       )
     );
