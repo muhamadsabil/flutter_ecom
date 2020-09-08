@@ -8,7 +8,7 @@ import 'dart:async';
 import 'package:core/Networking/APIResponse.dart';
 
 abstract class APIRequest {
-
+      dynamic get SuccessResponseType;
       String get baseUrl;
       String get path;
       HttpMethod get method;

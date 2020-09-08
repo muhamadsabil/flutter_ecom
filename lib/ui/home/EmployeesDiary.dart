@@ -30,7 +30,7 @@ class _EmployeeListState extends State<EmployeeList> {
     final employeeList = Employer();
 
     final serverResponse =
-    await session.request(service: postService, responseType: employeeList);
+    await session.request(service: postService);
 
     if(employeeList == null){
       _streamController.add(null);

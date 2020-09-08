@@ -36,10 +36,6 @@ class Employer extends ListMapable {
     return this;
   }
 
-  @override
-  // TODO: implement employeesStreamList
-  Stream<List<Data>> get employeesStreamList => throw UnimplementedError();
-
 }
 
 class Data {

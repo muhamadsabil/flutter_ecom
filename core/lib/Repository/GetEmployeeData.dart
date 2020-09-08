@@ -1,3 +1,4 @@
+import 'package:core/Models/Employee.dart';
 import 'package:core/Networking/APIRequest.dart';
 import 'package:core/Networking/HTTPMethode.dart';
 
@@ -23,6 +24,9 @@ class GetEmployeeData extends APIRequest {
 
   @override
   String get path => '/posts';
+
+  @override
+  get SuccessResponseType => Employer;
 
 
 }
