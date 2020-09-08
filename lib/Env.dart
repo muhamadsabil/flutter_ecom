@@ -3,15 +3,22 @@ import 'package:core/Networking/Environment.dart';
 
 
 class Env extends Environment{
-  Env(String baseURLString,
-      String version,
-      String clientID,
-      String clientSecret,
-      String accessKey,
-      String theme) : super(baseURLString, version, clientID, clientSecret, accessKey, theme);
+  @override
+  String get accessKey => null;
 
-}
+  @override
+  String get baseURLString => 'http://dummy.restapiexample.com/api/v1/employees';
 
-void setUpEnvironment(){
-  Env("http://dummy.restapiexample.com/api/v1/employees", "version", "clientID", "clientSecret", "accessKey", "theme");
+  @override
+  String get clientID => null;
+
+  @override
+  String get clientSecret => null;
+
+  @override
+  String get theme => null;
+
+  @override
+  String get version => null;
+
 }

@@ -24,12 +24,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   http: ^0.12.0+1
-  login_manager:
-    path: login_manager/
-  networking_manager:
-    path: networking_manager/
   core:
     path: core/
+  core_middle:
+    path: core_middle/
+
 
 
 dev_dependencies:

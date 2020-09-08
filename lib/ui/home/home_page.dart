@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular_app/ReusableCard.dart';
+import 'package:flutter_modular_app/ui/home/EmployeesDiary.dart';
 import 'package:flutter_modular_app/ui/home/EmployeesList.dart';
 
 
@@ -18,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome ${widget.title}"),
+        title: Text("Api components"),
       ),
       body:Center(
         child: Container(
@@ -27,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
           color: Colors.teal,
           child: MaterialButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> EmployeeList()));
             },
             child: Text('Click me'),
           ),

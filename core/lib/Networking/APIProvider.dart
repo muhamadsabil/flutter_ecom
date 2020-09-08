@@ -1,24 +1,23 @@
 
+import 'package:core/Networking/APIRequest.dart';
 import 'package:core/Networking/CustomExceptions.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'dart:io';
-
-class ApiProvider {
-  final String _baseUrl = "https://api.unsplash.com/";
-
-  Future<dynamic> get(String url) async {
+class APIProvider<T extends APIRequest> {
+  Future<T>perform (T _urlRequest) async{
     var responseJson;
     try {
-      final response = await http.get(_baseUrl + url);
+      final response = await http.get(_urlRequest);
       responseJson = _response(response);
-    } on SocketException {
+    }
+    on SocketException {
       throw FetchDataException('---No Internet connection---');
     }
     return responseJson;
-  }
 
+  }
   dynamic _response(http.Response response) {
     switch (response.statusCode) {
       case 200:
