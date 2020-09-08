@@ -16,7 +16,6 @@ class APIClient implements HttpSessionProtocol {
   final Client _client;
 
   APIClient(this._client);
-
   @override
   Future<Mapable> request({APIRequest service}) async {
     final request = HttpRequest(service);
@@ -25,7 +24,7 @@ class APIClient implements HttpSessionProtocol {
     if (requestResponse.statusCode >= 200 &&
         requestResponse.statusCode <= 299) {
       final data = await requestResponse.stream.transform(utf8.decoder).join();
-      return Mapable(data);
+      return Mapable.getData(data);
     }
 
   }

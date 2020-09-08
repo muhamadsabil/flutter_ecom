@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:core/Networking/APiResponse.dart';
 import 'package:core/Networking/Mappers.dart';
 
-class Employer extends ListMapable {
+class Employer {
   String status;
   List<Data> data;
 
@@ -30,11 +30,11 @@ class Employer extends ListMapable {
     return data;
   }
 
-  @override
-  Mapable fromJsonList(List json) {
-    data = json.map((i) => Data.fromJson(i)).toList();
-    return this;
-  }
+//  @override
+//  Mapable fromJsonList(List json) {
+//    data = json.map((i) => Data.fromJson(i)).toList();
+//    return this;
+//  }
 
 }
 
