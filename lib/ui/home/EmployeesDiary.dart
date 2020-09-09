@@ -5,7 +5,7 @@ import 'package:core/Networking/APIClient.dart';
 import 'package:flutter/material.dart';
 import 'package:core/Models/Employee.dart';
 import 'package:http/http.dart';
-import 'package:core/Repository/GetEmployeeData.dart';
+import 'package:core/Repository/EmployeeRepo.dart';
 
 class EmployeeList extends StatefulWidget {
   @override
@@ -14,35 +14,26 @@ class EmployeeList extends StatefulWidget {
 
 class _EmployeeListState extends State<EmployeeList> {
 
-  String _jsonString = "";
-  String _finalString = '{}';
-
   StreamController _streamController;
+
+
   Stream<List<Data>> get employeesStreamList => _streamController.stream;
 
-  void _makeRequest() async {
-    // Initialize the HttpClient.
-    final client = Client();
-    final postService = GetEmployeeData();
-    // Create an instance of the server session.
-    final session = APIClient(client);
-    // Define the response type for the request.
-    final employeeList = Employer();
-
-    final serverResponse =
-    await session.request(service: postService);
-
-    if(employeeList == null){
-      _streamController.add(null);
-    }
-    _streamController.add(employeeList);
-
-  }
-
+  EmployeeRepo _employeeRepo;
+//  void _makeRequest() async {
+//    // Initialize the HttpClient.
+//    final client = Client();
+//    final postService = GetEmployeeData();
+//    // Create an instance of the server session.
+//    final session = APIClient();
+//    final serverResponse =
+//    await session.request(service: postService);
+//  }
 
   @override
   void initState() {
     super.initState();
+    _employeeRepo = EmployeeRepo();
     _streamController = StreamController<List<Data>>();
   }
   @override
@@ -64,7 +55,7 @@ class _EmployeeListState extends State<EmployeeList> {
                   color: Colors.white70,
                   textColor: Colors.teal,
                   onPressed: (){
-                    _makeRequest();
+                    _employeeRepo.makeRequest();
                   },
                 ),
                 StreamBuilder(
@@ -84,8 +75,7 @@ class _EmployeeListState extends State<EmployeeList> {
                     );
 
                   }
-
-                ),
+                  ),
               ],
             ),
           ),

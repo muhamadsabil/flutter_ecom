@@ -10,11 +10,7 @@ class HttpRequest extends Request {
 
   final APIRequest service;
 
-  HttpRequest(this.service)
-      : super(
-      service.method.value,
-      Uri.parse(
-          '${service.baseUrl}'));
+  HttpRequest(this.service) : super(service.method.value, Uri.parse('${service.baseUrl}'));
 
   @override
   Map<String, String> get headers => this.service.headers;

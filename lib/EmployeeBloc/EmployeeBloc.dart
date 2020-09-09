@@ -1,27 +1,39 @@
-////
-//import 'dart:async';
-//import 'package:core/Networking/APIClient.dart';
-//import 'package:core/Networking/APiResponse.dart';
-//import 'package:core/Models/Employee.dart';
-//import 'package:core/Repository/APIClient.dart';
-//import 'package:core/Repository/GetEmployeeData.dart';
-//import 'package:http/http.dart';
-//
-//class EmployeeBloc {
-//
-//  void _makeRequest() async {
-//    // Initialize the HttpClient.
-//    final client = Client();
-//    final postService = GetEmployeeData();
-//    // Create an instance of the server session.
-//    final session = APIClient(client);
-//    // Define the response type for the request.
-//    final employeeList = Employer();
-//
-//    final serverResponse =
-//    await session.request(service: postService, responseType: employeeList);
-//  }
-//
-//  S
-//}
-//
+import 'dart:async';
+
+import 'package:core/Models/Employee.dart';
+import 'package:core/Networking/APIResponse.dart';
+import 'package:core/Repository/EmployeeRepo.dart';
+
+
+
+class EmployeeBlock {
+  EmployeeRepo employeeRepo;
+
+  StreamController _streamController;
+
+  StreamSink<ApiResponse<Data>> get _sink =>
+      _streamController.sink;
+
+  Stream<ApiResponse<Data>> get _stream =>
+      _streamController.stream;
+
+  EmployeeBlock() {
+    employeeRepo = EmployeeRepo();
+    _streamController = StreamController<ApiResponse<Data>>();
+  }
+
+  getEmployeeData () async {
+    _sink.add(ApiResponse.loading('Fetching employee details'));
+    try {
+      dynamic _data = await employeeRepo.makeRequest();
+      _sink.add(ApiResponse.completed(_data));
+    } catch (e) {
+      _sink.add(ApiResponse.error(e.toString()));
+      print(e);
+    }
+  }
+
+  dispose() {
+    _streamController?.close();
+  }
+}

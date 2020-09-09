@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_modular_app/ui/home/NewHomePage.dart';
 import 'package:flutter_modular_app/ui/home/home_page.dart';
 import 'package:flutter_modular_app/Env.dart';
 
@@ -16,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home: NewHomePage(),
     );
   }
 }
