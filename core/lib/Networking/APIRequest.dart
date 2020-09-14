@@ -3,14 +3,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:core/Networking/HTTPMethode.dart';
 import 'package:core/Networking/Environment.dart';
-import 'dart:io';
-import 'dart:async';
-import 'package:core/Networking/APIResponse.dart';
 
+enum ContentEncoding { url, json }
 abstract class APIRequest {
       dynamic get SuccessResponseType;
       String get baseUrl;
-      String get path;
+      String get resourceName;
       HttpMethod get method;
       Map<String, String> get headers;
       Map<String, dynamic> get parameters;
@@ -25,6 +23,11 @@ abstract class APIRequest {
       }
 
 }
-enum ContentEncoding { url, json }
+//extension on APIRequest{
+//      Uri _baseUrl(){
+//            var url = Uri.parse(baseUrl);
+//            return url;
+//      }
+//}
 
 

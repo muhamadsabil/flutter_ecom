@@ -6,11 +6,11 @@ import 'package:http_parser/http_parser.dart';
 import 'package:core/Networking/APIRequest.dart';
 
 
-class HttpRequest extends Request {
+class HttpRequest extends Request  {
 
   final APIRequest service;
 
-  HttpRequest(this.service) : super(service.method.value, Uri.parse('${service.baseUrl}'));
+  HttpRequest(this.service) : super(service.method.value, Uri.parse('${service.baseUrl}${service.resourceName}'));
 
   @override
   Map<String, String> get headers => this.service.headers;

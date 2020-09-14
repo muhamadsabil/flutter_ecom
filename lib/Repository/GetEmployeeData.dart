@@ -6,8 +6,7 @@ import 'package:core/Networking/HTTPMethode.dart';
 class GetEmployeeData extends APIRequest {
 
   @override
-  String get baseUrl => 'http://dummy.restapiexample.com/api/v1/employees';
-//  https://jsonplaceholder.typicode.com/posts
+  String get baseUrl => '/api/v1/';
 
   @override
   ContentEncoding get contentEncoding => ContentEncoding.url;
@@ -29,6 +28,9 @@ class GetEmployeeData extends APIRequest {
 
   @override
   get SuccessResponseType => Employer;
+
+  @override
+  String get resourceName => "employees";
 
 
 }
