@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_modular_app/SetUpEnvironment.dart';
 import 'package:flutter_modular_app/ui/home/NewHomePage.dart';
-import 'package:flutter_modular_app/Env.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -9,8 +9,10 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 class _MyAppState extends State<MyApp> {
+  SetUpEnvironment setUpEnvironment;
   @override
   void initState() {
+    setUpEnvironment = SetUpEnvironment();
     super.initState();
   }
   @override
@@ -20,3 +22,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+

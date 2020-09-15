@@ -38,3 +38,4 @@ class ProfileBloc {
     _streamController?.close();
   }
 }
+

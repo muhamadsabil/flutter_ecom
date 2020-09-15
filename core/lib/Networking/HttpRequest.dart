@@ -1,4 +1,5 @@
 
+import 'package:core/Networking/Environment.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -9,8 +10,10 @@ import 'package:core/Networking/APIRequest.dart';
 class HttpRequest extends Request  {
 
   final APIRequest service;
+  final Environment environment;
 
-  HttpRequest(this.service) : super(service.method.value, Uri.parse('${service.baseUrl}${service.resourceName}'));
+  HttpRequest(this.service, this.environment) :
+        super(service.method.value,Uri.parse('${environment.baseUrlString}${service.baseUrl}${service.resourceName}'));
 
   @override
   Map<String, String> get headers => this.service.headers;

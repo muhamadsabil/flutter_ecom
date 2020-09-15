@@ -6,7 +6,7 @@ import 'package:core/Networking/HTTPMethode.dart';
 class GetEmployeeData extends APIRequest {
 
   @override
-  String get baseUrl => '/api/v1/';
+  String get baseUrl => '/api/v1/employees';
 
   @override
   ContentEncoding get contentEncoding => ContentEncoding.url;
@@ -30,7 +30,7 @@ class GetEmployeeData extends APIRequest {
   get SuccessResponseType => Employer;
 
   @override
-  String get resourceName => "employees";
+  String get resourceName => "";
 
 
 }
