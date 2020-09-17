@@ -1,12 +1,12 @@
-class Profile {
+class Foo {
   int userId;
   int id;
   String title;
   String body;
 
-  Profile({this.userId, this.id, this.title, this.body});
+  Foo({this.userId, this.id, this.title, this.body});
 
-  Profile.fromJson(Map<String, dynamic> json) {
+  Foo.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
     id = json['id'];
     title = json['title'];

@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_modular_app/SetUpEnvironment.dart';
+import 'package:flutter_modular_app/ui/home/PostManHome.dart';
 import 'package:flutter_modular_app/ui/home/NewHomePage.dart';
+import 'package:flutter_modular_app/ui/home/UserForm.dart';
 
 
 class MyApp extends StatefulWidget {

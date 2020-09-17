@@ -12,14 +12,14 @@ class HttpRequest extends Request  {
   final APIRequest service;
   final Environment environment;
 
-  HttpRequest(this.service, this.environment) :
-        super(service.method.value,Uri.parse('${environment.baseUrlString}${service.baseUrl}${service.resourceName}'));
+  HttpRequest(this.service,this.environment) :
+        super(service.method.value,Uri.parse('${environment.baseUrlString}${service.baseUrl}${service.resourceName}',));
 
   @override
   Map<String, String> get headers => this.service.headers;
 
   @override
-  String get body => json.encode(this.service.parameters);
+  get body => null;
 
   @override
   Uint8List get bodyBytes {
@@ -44,4 +44,5 @@ class HttpRequest extends Request  {
     if (contentType == null) return null;
     return new MediaType.parse(contentType);
   }
+
 }

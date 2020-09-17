@@ -6,7 +6,7 @@ import 'package:core/Networking/Response.dart';
 import 'package:flutter_modular_app/Repository/ProfileRepo.dart';
 
 
-class ProfileBloc {
+class FooBloc {
   ProfileRepo profileRepo ;
   StreamController _streamController;
 
@@ -16,7 +16,7 @@ class ProfileBloc {
   Stream<ResponseApi<Foo>> get employeeListStream =>
       _streamController.stream;
 
-  ProfileBloc() {
+  FooBloc() {
     _streamController = StreamController<ResponseApi<Foo>>();
     profileRepo = ProfileRepo();
     fetchClocloPhotosList();

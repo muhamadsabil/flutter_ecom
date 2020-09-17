@@ -32,5 +32,9 @@ class GetEmployeeData extends APIRequest {
   @override
   String get resourceName => "";
 
+  @override
+  // TODO: implement body
+  get body => null;
+
 
 }

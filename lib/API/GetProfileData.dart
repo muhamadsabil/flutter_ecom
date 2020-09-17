@@ -5,7 +5,7 @@ import 'package:core/Models/Profile.dart';
 class GetProfileData extends APIRequest{
   @override
   // TODO: implement SuccessResponseType
-  get SuccessResponseType => Profile;
+  get SuccessResponseType => Foo;
 
   @override
   // TODO: implement baseUrl
@@ -33,5 +33,9 @@ class GetProfileData extends APIRequest{
   @override
   // TODO: implement resourceName
   String get resourceName => "posts";
+
+  @override
+  // TODO: implement body
+  get body => null;
 
 }
